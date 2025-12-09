@@ -17,7 +17,7 @@ class PredictionPipeline:
     def feature_engineer_data(self, df):
         try:
             
-            drop_columns = ['filename', 'db_name', 'db_id', 'instance','db_time_min', 'top_event_1_time_sec', 'top_event_2_time_sec', 'top_event_2_avg_ms', 'physical_to_logical_ratio', 'top_event_1_name', 'top_event_2_name', 'top_event_3_name']
+            drop_columns = ['filename', 'db_name', 'db_id', 'instance','db_time_min', 'top_event_1_time_sec', 'top_event_2_time_sec', 'top_event_2_avg_ms', 'physical_to_logical_ratio', 'top_event_1_name', 'top_event_2_name', 'top_event_3_name', 'anomaly_type']
             df = df.drop(columns=drop_columns, axis=1)
 
             ## converts start_time and end_time in datetime format
@@ -57,7 +57,7 @@ class PredictionPipeline:
             flattened_data = self.parser._flatten_report_data(report_data)
 
             #convert flattened data to dataframe
-            input_df = pd.DataFrame(flattened_data)
+            input_df = pd.DataFrame([flattened_data])
 
             #feature engineering
             features_df = self.feature_engineer_data(input_df)
