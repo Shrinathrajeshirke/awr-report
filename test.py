@@ -9,4 +9,4 @@ transformation = DataTransformation()
 X_train, X_test, y_train, y_test, label_encoder = transformation.initiate_data_transformation(df)
 
 trainer = ModelTrainer()
-report = trainer.initiate_model_trainer(X_train, X_test, y_train, y_test)
+accuracy, model_name = trainer.initiate_model_trainer(X_train, X_test, y_train, y_test)
