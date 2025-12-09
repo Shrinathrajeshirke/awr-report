@@ -8,3 +8,4 @@ lxml
 ipykernel
 imbalanced-learn
 dill
+xgboost
