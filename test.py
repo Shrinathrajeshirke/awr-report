@@ -1,15 +1,14 @@
-from src.components.awr_parser import AWRParser
+from src.components.data_ingestion import DataIngestion, DataIngestionConfig
+from src.components.data_transformation import DataTransformation, DataTransformationConfig
 
-parser = AWRParser()
+ingestion = DataIngestion()
+df = ingestion.initiate_data_ingestion()
 
-df = parser.parse_all_reports(
-    input_dir='data/raw_awr_reports',
-    output_csv='data/awr_metrics.csv'
-)
+transformation = DataTransformation()
+X_train, X_test, y_train, y_test, label_encoder = transformation.initiate_data_transformation(df)
 
-print(f"Parsed {len(df)} reports")
-print(f"Columns: {len(df.columns)}")
-print(df.head())
-print(df['anomaly_type'].value_counts())
-
-
+print(f"\nFinal shapes:")
+print(f"X_train: {X_train.shape}")
+print(f"X_test: {X_test.shape}")
+print(f"y_train: {y_train.shape}")
+print(f"y_test: {y_test.shape}")

@@ -146,6 +146,7 @@ venv.bak/
 logs/
 .vscode
 data/
+artifacts/
 # Spyder project settings
 .spyderproject
 .spyproject
