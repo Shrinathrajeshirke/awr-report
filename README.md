@@ -12,36 +12,46 @@ This project implements a robust, end-to-end pipeline for automated analysis of 
 
 The repository follows a clear, modular structure separating core components, pipelines, and artifacts.
 
-AWR-Anomaly-Detection/ 
-├── artifacts/ 
-│ ├── scaler.pkl # Supervised StandardScaler 
-│ ├── label_encoder.pkl # Supervised LabelEncoder │ ├── model.pkl # Supervised Random Forest Model 
-│ ├── unsupervised_scaler.pkl # Unsupervised StandardScaler 
-│ └── unsupervised_model.pkl # Unsupervised Isolation Forest Model 
-├── data/ 
-│ ├── raw_awr_reports/ # Input AWR HTML reports 
-│ └── awr_metrics.csv # Parsed and consolidated structured data 
-├── pipeline/ 
-│ ├── train_pipeline.py # Supervised training workflow 
-│ ├── predict_pipeline.py # Supervised prediction workflow 
-│ ├── unsupervised_train_pipeline.py # Unsupervised training workflow 
-│ └── unsupervised_predict_pipeline.py # Unsupervised prediction workflow 
-├── src/ 
-│ ├── components/ 
-│ │ ├── awr_parser.py # Core logic for HTML parsing & extraction 
-│ │ ├── data_ingestion.py # Data loading and validation 
-│ │ ├── data_transformation.py # Supervised feature engineering/scaling/SMOTE 
-│ │ └── model_trainer.py # Supervised model selection (Random Forest) 
-│ ├── unsupervised_components/ 
-│ │ ├── unsupervised_data_transformation.py # Unsupervised feature engineering/scaling 
-│ │ └── unsupervised_model_trainer.py # Unsupervised model training (Isolation Forest) 
-│ ├── generators/ 
-│ │ └── awr_report_generator.py # Script for synthetic data creation 
-│ ├── exception.py 
-│ ├── logger.py 
-│ └── utils.py # Helper functions (save/load object, evaluate models) 
-└── unsupervised_app.py # Streamlit web application
-
+## 📁 Project Structure
+```
+AWR-Anomaly-Detection/
+├── artifacts/
+│   ├── scaler.pkl                    # Supervised StandardScaler
+│   ├── label_encoder.pkl             # Supervised LabelEncoder
+│   ├── model.pkl                     # Supervised Random Forest Model
+│   ├── unsupervised_scaler.pkl       # Unsupervised StandardScaler
+│   └── unsupervised_model.pkl        # Unsupervised Isolation Forest Model
+│
+├── data/
+│   ├── raw_awr_reports/              # Input AWR HTML reports
+│   └── awr_metrics.csv               # Parsed and consolidated structured data
+│
+├── pipeline/
+│   ├── train_pipeline.py             # Supervised training workflow
+│   ├── predict_pipeline.py           # Supervised prediction workflow
+│   ├── unsupervised_train_pipeline.py     # Unsupervised training workflow
+│   └── unsupervised_predict_pipeline.py   # Unsupervised prediction workflow
+│
+├── src/
+│   ├── components/
+│   │   ├── awr_parser.py             # Core logic for HTML parsing & extraction
+│   │   ├── data_ingestion.py         # Data loading and validation
+│   │   ├── data_transformation.py    # Supervised feature engineering/scaling/SMOTE
+│   │   └── model_trainer.py          # Supervised model selection (Random Forest)
+│   │
+│   ├── unsupervised_components/
+│   │   ├── unsupervised_data_transformation.py  # Unsupervised feature engineering
+│   │   └── unsupervised_model_trainer.py        # Isolation Forest training
+│   │
+│   ├── generators/
+│   │   └── awr_report_generator.py   # Script for synthetic data creation
+│   │
+│   ├── exception.py
+│   ├── logger.py
+│   └── utils.py                      # Helper functions
+│
+└── unsupervised_app.py               # Streamlit web application
+```
 ## 3. Data Extraction Pipeline
 
 The initial phase converts raw AWR reports into a structured CSV dataset.
