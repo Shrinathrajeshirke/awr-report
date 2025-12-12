@@ -6,6 +6,6 @@ seaborn
 beautifulsoup4
 lxml
 ipykernel
-imbalanced-learn
+imbalanced-learn==0.12.2
 dill
 xgboost
