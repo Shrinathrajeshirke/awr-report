@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
-from imblearn.over_sampling import SMOTE
+#from imblearn.over_sampling import SMOTE
 from src.logger import logging
 from collections import Counter
 from src.exception import CustomException
